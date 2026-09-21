@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ff6b9a">
+<title>Xin lỗi người anh yêu ❤️</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:Arial,sans-serif;background:linear-gradient(135deg,#ffd6e7,#fff0f6,#ffd1e3);display:flex;align-items:center;justify-content:center;padding:16px;color:#512536}
+.card{width:100%;max-width:680px;background:#ffffffee;border-radius:26px;padding:28px 20px;box-shadow:0 15px 45px #b44e7330;text-align:center}
+.heart{font-size:48px;animation:pulse 1.4s infinite}
+h1{color:#df356d;font-size:clamp(28px,8vw,44px);margin:8px 0 22px}
+.intro{line-height:1.8;font-size:17px}
+.title{font-size:clamp(22px,6vw,32px);font-weight:800;color:#d92e67;margin:25px 0}
+.menu{display:grid;gap:12px}
+button{width:100%;border:0;border-radius:16px;padding:15px;font-size:16px;font-weight:700;color:#fff;background:linear-gradient(135deg,#ff6b9a,#e83f76);box-shadow:0 6px 15px #e83f7638;cursor:pointer}
+button:active{transform:scale(.98)}
+#content{display:none;margin-top:22px;padding:22px 18px;background:#fff5f8;border-radius:20px;text-align:left;line-height:1.85;animation:fade .35s ease}
+#content h2{text-align:center;color:#df356d;margin-top:0}
+.back{margin-top:15px;background:#fff;color:#df356d;border:2px solid #ff9abb}
+.footer{margin-top:24px;color:#a96b80;font-size:13px}
+@keyframes pulse{50%{transform:scale(1.12)}}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+<main class="card">
+<div class="heart">❤️</div>
+<h1>XIN LỖI NGƯỜI ANH YÊU</h1>
+<div class="intro">
+<p>Anh có một điều muốn nói với em...</p>
+<p>Có thể anh đã làm em buồn.</p>
+<p>Có thể anh đã khiến em thất vọng.</p>
+<p>Và có thể anh đã vô tình làm em tổn thương.</p>
+<p>Anh không muốn tìm lý do để biện minh.</p>
+<p>Anh chỉ muốn nói một câu thật lòng...</p>
+</div>
+<div class="title">ANH XIN LỖI EM</div>
+<div class="menu">
+<button onclick="show(1)">💌 Đọc lời xin lỗi của anh</button>
+<button onclick="show(2)">🤝 Một lời hứa với em</button>
+<button onclick="show(3)">❤️ Anh yêu em</button>
+<button onclick="show(4)">🌷 Thoát</button>
+</div>
+<section id="content"></section>
+<div class="footer">Anh thật sự xin lỗi em ❤️</div>
+</main>
+<script>
+const data={
+1:["LỜI XIN LỖI",
+"Anh biết một lời xin lỗi không thể xóa đi ngay những điều đã xảy ra.",
+"Nhưng anh thật sự rất tiếc vì đã làm em buồn.",
+"Anh không muốn em phải khóc hay cảm thấy mình không được trân trọng.",
+"Anh xin lỗi vì những điều anh đã làm.",
+"Anh sẽ cố gắng thay đổi và biết trân trọng em nhiều hơn.",
+"Anh mong em có thể tha thứ cho anh."],
+2:["LỜI HỨA",
+"Anh không hứa rằng mình sẽ hoàn hảo.",
+"Nhưng anh hứa sẽ cố gắng trở thành một người tốt hơn mỗi ngày.",
+"Anh sẽ lắng nghe em nhiều hơn.",
+"Anh sẽ trân trọng cảm xúc của em.",
+"Và anh sẽ cố gắng không để những chuyện không đáng có làm em buồn nữa.",
+"Cảm ơn em vì vẫn ở đây."],
+3:["ANH YÊU EM ❤️","Anh yêu em.","Anh xin lỗi vì đã làm em buồn.","Anh không muốn mất em.","Nếu có thể...","Anh chỉ muốn được ôm em một cái.","Và nói rằng...","ANH XIN LỖI EM."],
+4:["❤️","Cảm ơn em đã đọc đến đây.","Anh thật sự xin lỗi em."]
+};
+function show(n){
+ const box=document.getElementById("content"), a=data[n];
+ box.style.display="block";
+ box.innerHTML="<h2>"+a[0]+"</h2>"+a.slice(1).map(x=>"<p>"+x+"</p>").join("")+
+ (n!==4?'<button class="back" onclick="back()">← Quay lại</button>':'');
+ box.scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+function back(){document.getElementById("content").style.display="none";}
+</script>
+</body>
+</html>
